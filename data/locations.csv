@@ -1,0 +1,29 @@
+name,category,latitude,longitude,description
+Academic Building 1,Academic,23.077559397227827,76.85140298744585,Main academic building and classroom facilities
+Academic Building 2,Academic,23.07375033665573,76.85581169731584,Academic building with classrooms and facilities
+Food Court - Mayuri,Food,23.077258340163592,76.85067691987099,Mayuri food outlet in the campus food court
+Food Court - Under Belly,Food,23.077443360023196,76.85059034178612,Under Belly food outlet in the campus food court
+Safal Shop,Shopping,23.07738754643319,76.8511171490193,Campus convenience store
+Lab Complex,Academic,23.0785989322344,76.84997774916923,Laboratory complex
+Architecture Building,Academic,23.07808070001051,76.85020343033528,Architecture and studio facilities
+Library - AB1,Library,23.07765268985397, 76.85150549035865,Library facility located in Academic Building 1
+Library - AB2,Library,23.073626027122526,76.85587156611781,Library facility located in Academic Building 2
+Dr. Morepan Medical Facility,Medical,23.07614684230152,76.84986254219338,Campus medical facility
+Open Auditorium,Recreation,23.07437225122778,76.85106186886614,Open-air auditorium
+Chancellor Residence,Administration,23.074850966084025,76.85134257208863,Chancellor residence
+Girls Hostel 1,Hostel,23.075314511391053,76.85249929843326,Girls residential facility
+Girls Hostel 2,Hostel,23.07552969581512,76.85359522715413,Girls residential facility
+Special Block,Student Services,23.072546434017088,76.85745621529671,Special block containing student facilities
+Mayuri Cafe - Special Block,Food,23.072629838926847,76.8579567153542,Mayuri outlet in Special Block
+Bistro - Special Block,Food,23.072694998976623,76.85785661534271,Bistro in Special Block
+AB Dakshin,Food,23.07268283576973,76.85756670304525,Food outlet in Special Block
+Stationery - Special Block,Shopping,23.072399092055914,76.85799059094754,Stationery facility in Special Block
+Gym - Special Block,Fitness,23.072228222283417,76.85761164154296,Gym facility in Special Block
+Boys Hostel 1,Hostel,23.075263843921622,76.85994176686623,Boys residential facility
+Boys Hostel 2,Hostel,23.072935811634473,76.86010712632114,Boys residential facility
+Boys Hostel 3,Hostel,23.073498834363807,76.85935541577545,Boys residential facility
+Boys Hostel 4,Hostel,23.073002626228295,76.85879256454697,Boys residential facility
+Boys Hostel 5,Hostel,23.073584463172033,76.8587315865943,Boys residential facility
+Boys Hostel 6,Hostel,23.072270478106457,76.85971780102815,Boys residential facility
+Boys Hostel 7,Hostel,23.07349461260201,76.85924745728575,Boys residential facility
+Boys Hostel 8,Hostel,23.073841539932324,76.85953000936655,Boys residential facility
