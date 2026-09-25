@@ -151,14 +151,21 @@ if choice.lower() == "yes":
     first = int(input("\nEnter the number of the first location: "))
     second = int(input("Enter the number of the second location: "))
 
-    lat1 = locations["latitude"][first - 1]
-    lon1 = locations["longitude"][first - 1]
+    if first < 1 or first > len(locations) or second < 1 or second > len(locations):
+        print("\nInvalid location number.")
 
-    lat2 = locations["latitude"][second - 1]
-    lon2 = locations["longitude"][second - 1]
+    elif first == second:
+        print("\nPlease choose two different locations.")
 
-    distance = calculate_distance(lat1, lon1, lat2, lon2)
+    else:
+        lat1 = locations["latitude"][first - 1]
+        lon1 = locations["longitude"][first - 1]
 
-    print("\nDistance between", locations["name"][first - 1],
-          "and", locations["name"][second - 1], "is",
-          round(distance, 2), "km")
+        lat2 = locations["latitude"][second - 1]
+        lon2 = locations["longitude"][second - 1]
+
+        distance = calculate_distance(lat1, lon1, lat2, lon2)
+
+        print("\nDistance between", locations["name"][first - 1],
+              "and", locations["name"][second - 1], "is",
+              round(distance, 2), "km")
