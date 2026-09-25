@@ -1,28 +1,21 @@
 import pandas as pd
 import folium
 from folium.plugins import Search
-import json
 import math
 
 locations = pd.read_csv("data/locations.csv")
+
 def calculate_distance(lat1, lon1, lat2, lon2):
-
     radius = 6371
-
     lat1 = math.radians(lat1)
     lon1 = math.radians(lon1)
     lat2 = math.radians(lat2)
     lon2 = math.radians(lon2)
-
     dlat = lat2 - lat1
     dlon = lon2 - lon1
-
     a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
-
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-
     distance = radius * c
-
     return distance
 
 lat = locations["latitude"].mean()
@@ -32,6 +25,7 @@ campus_map = folium.Map(
     location=[lat, lon],
     zoom_start=17
 )
+
 colors = {
     "Academic": "blue",
     "Food": "red",
@@ -48,11 +42,9 @@ colors = {
 marker_group = folium.FeatureGroup(name="Locations").add_to(campus_map)
 
 for i in range(len(locations)):
-
-    category = locations["category"][i]
-
-    if category in colors:
-        color = colors[category]
+    cat = locations["category"][i]
+    if cat in colors:
+        color = colors[cat]
     else:
         color = "gray"
 
@@ -62,7 +54,6 @@ for i in range(len(locations)):
         tooltip=locations["name"][i],
         icon=folium.Icon(color=color)
     )
-
     marker.add_to(marker_group)
 
 search_data = {
@@ -71,8 +62,7 @@ search_data = {
 }
 
 for i in range(len(locations)):
-
-    feature = {
+    f = {
         "type": "Feature",
         "properties": {
             "name": locations["name"][i]
@@ -85,8 +75,7 @@ for i in range(len(locations)):
             ]
         }
     }
-
-    search_data["features"].append(feature)
+    search_data["features"].append(f)
 
 search_layer = folium.GeoJson(
     search_data,
@@ -98,7 +87,6 @@ search_layer = folium.GeoJson(
 )
 
 search_layer.add_to(campus_map)
-
 
 Search(
     layer=search_layer,
@@ -133,8 +121,6 @@ font-size: 14px;
 """
 
 campus_map.get_root().html.add_child(folium.Element(legend))
-
-
 campus_map.save("campus_map.html")
 
 print("Map created successfully")
@@ -142,30 +128,25 @@ print("Map created successfully")
 choice = input("\nDo you want to calculate the distance between two locations? (yes/no): ")
 
 if choice.lower() == "yes":
-
     print("\nAvailable locations:")
-
     for i in range(len(locations)):
         print(i + 1, locations["name"][i])
 
-    first = int(input("\nEnter the number of the first location: "))
-    second = int(input("Enter the number of the second location: "))
+    a = int(input("\nEnter the number of the first location: "))
+    b = int(input("Enter the number of the second location: "))
 
-    if first < 1 or first > len(locations) or second < 1 or second > len(locations):
+    if a < 1 or a > len(locations) or b < 1 or b > len(locations):
         print("\nInvalid location number.")
-
-    elif first == second:
+    elif a == b:
         print("\nPlease choose two different locations.")
-
     else:
-        lat1 = locations["latitude"][first - 1]
-        lon1 = locations["longitude"][first - 1]
+        lat1 = locations["latitude"][a - 1]
+        lon1 = locations["longitude"][a - 1]
+        lat2 = locations["latitude"][b - 1]
+        lon2 = locations["longitude"][b - 1]
 
-        lat2 = locations["latitude"][second - 1]
-        lon2 = locations["longitude"][second - 1]
+        d = calculate_distance(lat1, lon1, lat2, lon2)
 
-        distance = calculate_distance(lat1, lon1, lat2, lon2)
-
-        print("\nDistance between", locations["name"][first - 1],
-              "and", locations["name"][second - 1], "is",
-              round(distance, 2), "km")
+        print("\nDistance between", locations["name"][a - 1],
+              "and", locations["name"][b - 1], "is",
+              round(d, 2), "km")
