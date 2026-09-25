@@ -1,0 +1,70 @@
+import pandas as pd
+import folium
+
+locations = pd.read_csv("data/locations.csv")
+
+lat = locations["latitude"].mean()
+lon = locations["longitude"].mean()
+
+campus_map = folium.Map(
+    location=[lat, lon],
+    zoom_start=17
+)
+colors = {
+    "Academic": "blue",
+    "Food": "red",
+    "Shopping": "orange",
+    "Library": "green",
+    "Medical": "darkred",
+    "Hostel": "purple",
+    "Fitness": "darkgreen",
+    "Recreation": "cadetblue",
+    "Administration": "black",
+    "Student Services": "pink"
+}
+
+for i in range(len(locations)):
+    category = locations["category"][i]
+
+    if category in colors:
+        color = colors[category]
+    else:
+        color = "gray"
+
+    folium.Marker(
+        [locations["latitude"][i], locations["longitude"][i]],
+        popup=locations["description"][i],
+        tooltip=locations["name"][i],
+        icon=folium.Icon(color=color)
+    ).add_to(campus_map)
+
+legend = """
+<div style="
+position: fixed;
+bottom: 30px;
+left: 30px;
+background-color: white;
+padding: 10px;
+border: 2px solid grey;
+z-index: 9999;
+font-size: 14px;
+">
+<b>Map Legend</b><br>
+<span style="color:blue;">●</span> Academic<br>
+<span style="color:red;">●</span> Food<br>
+<span style="color:orange;">●</span> Shopping<br>
+<span style="color:green;">●</span> Library<br>
+<span style="color:purple;">●</span> Hostel<br>
+<span style="color:darkred;">●</span> Medical<br>
+<span style="color:darkgreen;">●</span> Fitness<br>
+<span style="color:cadetblue;">●</span> Recreation<br>
+<span style="color:black;">●</span> Administration<br>
+<span style="color:pink;">●</span> Student Services
+</div>
+"""
+
+campus_map.get_root().html.add_child(folium.Element(legend))
+
+campus_map.save("campus_map.html")
+
+print("Map created successfully")

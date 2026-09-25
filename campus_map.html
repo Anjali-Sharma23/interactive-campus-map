@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_84800c2457a4e764a0cde36f2182d878 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+position: fixed;
+bottom: 30px;
+left: 30px;
+background-color: white;
+padding: 10px;
+border: 2px solid grey;
+z-index: 9999;
+font-size: 14px;
+">
+<b>Map Legend</b><br>
+<span style="color:blue;">●</span> Academic<br>
+<span style="color:red;">●</span> Food<br>
+<span style="color:orange;">●</span> Shopping<br>
+<span style="color:green;">●</span> Library<br>
+<span style="color:purple;">●</span> Hostel<br>
+<span style="color:darkred;">●</span> Medical<br>
+<span style="color:darkgreen;">●</span> Fitness<br>
+<span style="color:cadetblue;">●</span> Recreation<br>
+<span style="color:black;">●</span> Administration<br>
+<span style="color:pink;">●</span> Student Services
+</div>
+    
+            <div class="folium-map" id="map_84800c2457a4e764a0cde36f2182d878" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_84800c2457a4e764a0cde36f2182d878 = L.map(
+                "map_84800c2457a4e764a0cde36f2182d878",
+                {
+                    center: [23.074463966300293, 76.85562664723511],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 17,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_56f23a0d3e332c16b6c3e58c40c4ce62 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_56f23a0d3e332c16b6c3e58c40c4ce62.addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var marker_b5b9690fc670a2a324fd030202e964ee = L.marker(
+                [23.077559397227827, 76.85140298744585],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_edcc3a1b207a8419d7b7782280c731d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7ab2ae486b5ecb5fecdbd8f8bd5f4f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6cef9eac58033b45205ba8321f9561f = $(`<div id="html_e6cef9eac58033b45205ba8321f9561f" style="width: 100.0%; height: 100.0%;">Main academic building and classroom facilities</div>`)[0];
+                popup_e7ab2ae486b5ecb5fecdbd8f8bd5f4f1.setContent(html_e6cef9eac58033b45205ba8321f9561f);
+            
+        
+
+        marker_b5b9690fc670a2a324fd030202e964ee.bindPopup(popup_e7ab2ae486b5ecb5fecdbd8f8bd5f4f1)
+        ;
+
+        
+    
+    
+            marker_b5b9690fc670a2a324fd030202e964ee.bindTooltip(
+                `<div>
+                     Academic Building 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5b9690fc670a2a324fd030202e964ee.setIcon(icon_edcc3a1b207a8419d7b7782280c731d7);
+            
+    
+            var marker_95db795837c752dda8765f2e8eed5e9e = L.marker(
+                [23.07375033665573, 76.85581169731584],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_32418e2613b0372ff0eb1c8cc3a5e07f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a3b82e849107a4078b802b3c4b124ff8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_78a25a7d00a7beb8883122a76409077a = $(`<div id="html_78a25a7d00a7beb8883122a76409077a" style="width: 100.0%; height: 100.0%;">Academic building with classrooms and facilities</div>`)[0];
+                popup_a3b82e849107a4078b802b3c4b124ff8.setContent(html_78a25a7d00a7beb8883122a76409077a);
+            
+        
+
+        marker_95db795837c752dda8765f2e8eed5e9e.bindPopup(popup_a3b82e849107a4078b802b3c4b124ff8)
+        ;
+
+        
+    
+    
+            marker_95db795837c752dda8765f2e8eed5e9e.bindTooltip(
+                `<div>
+                     Academic Building 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_95db795837c752dda8765f2e8eed5e9e.setIcon(icon_32418e2613b0372ff0eb1c8cc3a5e07f);
+            
+    
+            var marker_d9d68bf703d3df18f4c0d1092c0c8228 = L.marker(
+                [23.077258340163592, 76.85067691987099],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_5f2a4e3fb0975b3e7dcf30f01790d1b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d7a442b5d7a80351b27e48e174bcfc0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a64c4877b39552ee114ae39c6b57af1 = $(`<div id="html_8a64c4877b39552ee114ae39c6b57af1" style="width: 100.0%; height: 100.0%;">Mayuri food outlet in the campus food court</div>`)[0];
+                popup_0d7a442b5d7a80351b27e48e174bcfc0.setContent(html_8a64c4877b39552ee114ae39c6b57af1);
+            
+        
+
+        marker_d9d68bf703d3df18f4c0d1092c0c8228.bindPopup(popup_0d7a442b5d7a80351b27e48e174bcfc0)
+        ;
+
+        
+    
+    
+            marker_d9d68bf703d3df18f4c0d1092c0c8228.bindTooltip(
+                `<div>
+                     Food Court - Mayuri
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d9d68bf703d3df18f4c0d1092c0c8228.setIcon(icon_5f2a4e3fb0975b3e7dcf30f01790d1b7);
+            
+    
+            var marker_ba31167c38d3fabfb9b949cdeb7d96b1 = L.marker(
+                [23.0774433600232, 76.85059034178612],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_8b70ad938f0e6aef24d2059cafdb15eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_79fbc86e0f6f6f3b11633ab5827a391d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ca3b4cbcd6ad3bba5f5029f4e183765 = $(`<div id="html_5ca3b4cbcd6ad3bba5f5029f4e183765" style="width: 100.0%; height: 100.0%;">Under Belly food outlet in the campus food court</div>`)[0];
+                popup_79fbc86e0f6f6f3b11633ab5827a391d.setContent(html_5ca3b4cbcd6ad3bba5f5029f4e183765);
+            
+        
+
+        marker_ba31167c38d3fabfb9b949cdeb7d96b1.bindPopup(popup_79fbc86e0f6f6f3b11633ab5827a391d)
+        ;
+
+        
+    
+    
+            marker_ba31167c38d3fabfb9b949cdeb7d96b1.bindTooltip(
+                `<div>
+                     Food Court - Under Belly
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba31167c38d3fabfb9b949cdeb7d96b1.setIcon(icon_8b70ad938f0e6aef24d2059cafdb15eb);
+            
+    
+            var marker_d0f0e27dc932eb941e249b177d087632 = L.marker(
+                [23.07738754643319, 76.8511171490193],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_3464323fd56585c5d04b8494a993adf4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70e5904c9b6eda8b8ee2550c065e2698 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_25241cf1bafda04a5db9452fd9ae5dc1 = $(`<div id="html_25241cf1bafda04a5db9452fd9ae5dc1" style="width: 100.0%; height: 100.0%;">Campus convenience store</div>`)[0];
+                popup_70e5904c9b6eda8b8ee2550c065e2698.setContent(html_25241cf1bafda04a5db9452fd9ae5dc1);
+            
+        
+
+        marker_d0f0e27dc932eb941e249b177d087632.bindPopup(popup_70e5904c9b6eda8b8ee2550c065e2698)
+        ;
+
+        
+    
+    
+            marker_d0f0e27dc932eb941e249b177d087632.bindTooltip(
+                `<div>
+                     Safal Shop
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d0f0e27dc932eb941e249b177d087632.setIcon(icon_3464323fd56585c5d04b8494a993adf4);
+            
+    
+            var marker_5310d7dc492f4fe8408d0c74b5716725 = L.marker(
+                [23.0785989322344, 76.84997774916923],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_4b1cdce2dc0f10b5e6011975ca189540 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_36636e2a0e0773cb2b5cfb4a9734847e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e71f9ab8cc451da12dd76a89d07e96fb = $(`<div id="html_e71f9ab8cc451da12dd76a89d07e96fb" style="width: 100.0%; height: 100.0%;">Laboratory complex</div>`)[0];
+                popup_36636e2a0e0773cb2b5cfb4a9734847e.setContent(html_e71f9ab8cc451da12dd76a89d07e96fb);
+            
+        
+
+        marker_5310d7dc492f4fe8408d0c74b5716725.bindPopup(popup_36636e2a0e0773cb2b5cfb4a9734847e)
+        ;
+
+        
+    
+    
+            marker_5310d7dc492f4fe8408d0c74b5716725.bindTooltip(
+                `<div>
+                     Lab Complex
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5310d7dc492f4fe8408d0c74b5716725.setIcon(icon_4b1cdce2dc0f10b5e6011975ca189540);
+            
+    
+            var marker_995eca61a16a661b8bef1bba8d695230 = L.marker(
+                [23.07808070001051, 76.85020343033528],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_2f38d3de62d72020533d1c1ae7eff6f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_573f5472435479e2cd1aabe1656b2f42 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea8e27909bc0ef1ae7b193b2108d1300 = $(`<div id="html_ea8e27909bc0ef1ae7b193b2108d1300" style="width: 100.0%; height: 100.0%;">Architecture and studio facilities</div>`)[0];
+                popup_573f5472435479e2cd1aabe1656b2f42.setContent(html_ea8e27909bc0ef1ae7b193b2108d1300);
+            
+        
+
+        marker_995eca61a16a661b8bef1bba8d695230.bindPopup(popup_573f5472435479e2cd1aabe1656b2f42)
+        ;
+
+        
+    
+    
+            marker_995eca61a16a661b8bef1bba8d695230.bindTooltip(
+                `<div>
+                     Architecture Building
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_995eca61a16a661b8bef1bba8d695230.setIcon(icon_2f38d3de62d72020533d1c1ae7eff6f5);
+            
+    
+            var marker_cea635569c3618013d74c378aec27c89 = L.marker(
+                [23.07765268985397, 76.85150549035865],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_a068a3f34f7d4824e8ca7361106614dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_26030f9362a1f20a09313f1b142ab874 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d3f212b07f93515b4bee04d28cd72b3 = $(`<div id="html_5d3f212b07f93515b4bee04d28cd72b3" style="width: 100.0%; height: 100.0%;">Library facility located in Academic Building 1</div>`)[0];
+                popup_26030f9362a1f20a09313f1b142ab874.setContent(html_5d3f212b07f93515b4bee04d28cd72b3);
+            
+        
+
+        marker_cea635569c3618013d74c378aec27c89.bindPopup(popup_26030f9362a1f20a09313f1b142ab874)
+        ;
+
+        
+    
+    
+            marker_cea635569c3618013d74c378aec27c89.bindTooltip(
+                `<div>
+                     Library - AB1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cea635569c3618013d74c378aec27c89.setIcon(icon_a068a3f34f7d4824e8ca7361106614dc);
+            
+    
+            var marker_f2cd30e1ee0f3067313159de980e63e9 = L.marker(
+                [23.07362602712253, 76.85587156611781],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_d1fcfc408657b2de746d323e9608cf2d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c1e91200c89f84027cb1731b99dc3632 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c43dd7bfbbe0f588886240e757d7236 = $(`<div id="html_3c43dd7bfbbe0f588886240e757d7236" style="width: 100.0%; height: 100.0%;">Library facility located in Academic Building 2</div>`)[0];
+                popup_c1e91200c89f84027cb1731b99dc3632.setContent(html_3c43dd7bfbbe0f588886240e757d7236);
+            
+        
+
+        marker_f2cd30e1ee0f3067313159de980e63e9.bindPopup(popup_c1e91200c89f84027cb1731b99dc3632)
+        ;
+
+        
+    
+    
+            marker_f2cd30e1ee0f3067313159de980e63e9.bindTooltip(
+                `<div>
+                     Library - AB2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f2cd30e1ee0f3067313159de980e63e9.setIcon(icon_d1fcfc408657b2de746d323e9608cf2d);
+            
+    
+            var marker_8d951f03df3b1dbe97ddc6240ba47e2d = L.marker(
+                [23.07614684230152, 76.84986254219338],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_631a930f23d947742b00df8b2732e59b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e4fcd2a944cf32e48b1dba8f99551f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9fa67606bbb775629c3ee875832e3bec = $(`<div id="html_9fa67606bbb775629c3ee875832e3bec" style="width: 100.0%; height: 100.0%;">Campus medical facility</div>`)[0];
+                popup_3e4fcd2a944cf32e48b1dba8f99551f9.setContent(html_9fa67606bbb775629c3ee875832e3bec);
+            
+        
+
+        marker_8d951f03df3b1dbe97ddc6240ba47e2d.bindPopup(popup_3e4fcd2a944cf32e48b1dba8f99551f9)
+        ;
+
+        
+    
+    
+            marker_8d951f03df3b1dbe97ddc6240ba47e2d.bindTooltip(
+                `<div>
+                     Dr. Morepan Medical Facility
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8d951f03df3b1dbe97ddc6240ba47e2d.setIcon(icon_631a930f23d947742b00df8b2732e59b);
+            
+    
+            var marker_a13aafe391db89475083563075a97af1 = L.marker(
+                [23.07437225122778, 76.85106186886614],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_599ede11c35527f4970159c3fcbc9717 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b429808062b4c88ff67f24bc98686a2a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_daff0cdd8ce5a89170e43d63b0414d66 = $(`<div id="html_daff0cdd8ce5a89170e43d63b0414d66" style="width: 100.0%; height: 100.0%;">Open-air auditorium</div>`)[0];
+                popup_b429808062b4c88ff67f24bc98686a2a.setContent(html_daff0cdd8ce5a89170e43d63b0414d66);
+            
+        
+
+        marker_a13aafe391db89475083563075a97af1.bindPopup(popup_b429808062b4c88ff67f24bc98686a2a)
+        ;
+
+        
+    
+    
+            marker_a13aafe391db89475083563075a97af1.bindTooltip(
+                `<div>
+                     Open Auditorium
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a13aafe391db89475083563075a97af1.setIcon(icon_599ede11c35527f4970159c3fcbc9717);
+            
+    
+            var marker_8f9e813bb3685e07416ae0a0b6988657 = L.marker(
+                [23.074850966084025, 76.85134257208863],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_e893242e67dd0cca8472b1f33b30bf6e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4722cdf3f4cce65b3be4337dc5277f30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ecc9724006ac802e5051f97888542a6 = $(`<div id="html_8ecc9724006ac802e5051f97888542a6" style="width: 100.0%; height: 100.0%;">Chancellor residence</div>`)[0];
+                popup_4722cdf3f4cce65b3be4337dc5277f30.setContent(html_8ecc9724006ac802e5051f97888542a6);
+            
+        
+
+        marker_8f9e813bb3685e07416ae0a0b6988657.bindPopup(popup_4722cdf3f4cce65b3be4337dc5277f30)
+        ;
+
+        
+    
+    
+            marker_8f9e813bb3685e07416ae0a0b6988657.bindTooltip(
+                `<div>
+                     Chancellor Residence
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f9e813bb3685e07416ae0a0b6988657.setIcon(icon_e893242e67dd0cca8472b1f33b30bf6e);
+            
+    
+            var marker_a07f16fc058bf70b35d50153be0b04e7 = L.marker(
+                [23.075314511391053, 76.85249929843326],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_33e50d17a18121b2165e7e4556fe5b33 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ddaef3ddc2c39b40e9d60a8613945893 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_414f3b2ab5c3bdf65e0b83d2a49d47a2 = $(`<div id="html_414f3b2ab5c3bdf65e0b83d2a49d47a2" style="width: 100.0%; height: 100.0%;">Girls residential facility</div>`)[0];
+                popup_ddaef3ddc2c39b40e9d60a8613945893.setContent(html_414f3b2ab5c3bdf65e0b83d2a49d47a2);
+            
+        
+
+        marker_a07f16fc058bf70b35d50153be0b04e7.bindPopup(popup_ddaef3ddc2c39b40e9d60a8613945893)
+        ;
+
+        
+    
+    
+            marker_a07f16fc058bf70b35d50153be0b04e7.bindTooltip(
+                `<div>
+                     Girls Hostel 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a07f16fc058bf70b35d50153be0b04e7.setIcon(icon_33e50d17a18121b2165e7e4556fe5b33);
+            
+    
+            var marker_57d13a3824a633d05044400b978d2ec1 = L.marker(
+                [23.07552969581512, 76.85359522715413],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_7e58bf6a7af419af3dfd51e545887a4e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f3928c9e6048e2fadad8fc1a8fa3338e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34678da6b1ea3d132b946c9e3f800339 = $(`<div id="html_34678da6b1ea3d132b946c9e3f800339" style="width: 100.0%; height: 100.0%;">Girls residential facility</div>`)[0];
+                popup_f3928c9e6048e2fadad8fc1a8fa3338e.setContent(html_34678da6b1ea3d132b946c9e3f800339);
+            
+        
+
+        marker_57d13a3824a633d05044400b978d2ec1.bindPopup(popup_f3928c9e6048e2fadad8fc1a8fa3338e)
+        ;
+
+        
+    
+    
+            marker_57d13a3824a633d05044400b978d2ec1.bindTooltip(
+                `<div>
+                     Girls Hostel 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_57d13a3824a633d05044400b978d2ec1.setIcon(icon_7e58bf6a7af419af3dfd51e545887a4e);
+            
+    
+            var marker_97bf86952378461790efebd112a90c89 = L.marker(
+                [23.072546434017088, 76.85745621529671],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_dc0f5e33b2c4ffb4ade9ad3c0506b301 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e1c3a1cda67e1da4bc054cb310ffa3fa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03e91917d7e95316c3859427b26a65a4 = $(`<div id="html_03e91917d7e95316c3859427b26a65a4" style="width: 100.0%; height: 100.0%;">Special block containing student facilities</div>`)[0];
+                popup_e1c3a1cda67e1da4bc054cb310ffa3fa.setContent(html_03e91917d7e95316c3859427b26a65a4);
+            
+        
+
+        marker_97bf86952378461790efebd112a90c89.bindPopup(popup_e1c3a1cda67e1da4bc054cb310ffa3fa)
+        ;
+
+        
+    
+    
+            marker_97bf86952378461790efebd112a90c89.bindTooltip(
+                `<div>
+                     Special Block
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_97bf86952378461790efebd112a90c89.setIcon(icon_dc0f5e33b2c4ffb4ade9ad3c0506b301);
+            
+    
+            var marker_6c53d256cbd09c0781192ed3bb440d02 = L.marker(
+                [23.072629838926847, 76.8579567153542],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_24208994e011a3ac5e74c4a52ff7e917 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_516a1e8e8c840826c140039ba6960001 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1af2bf0497ac2491c0fe4e2670e4157c = $(`<div id="html_1af2bf0497ac2491c0fe4e2670e4157c" style="width: 100.0%; height: 100.0%;">Mayuri outlet in Special Block</div>`)[0];
+                popup_516a1e8e8c840826c140039ba6960001.setContent(html_1af2bf0497ac2491c0fe4e2670e4157c);
+            
+        
+
+        marker_6c53d256cbd09c0781192ed3bb440d02.bindPopup(popup_516a1e8e8c840826c140039ba6960001)
+        ;
+
+        
+    
+    
+            marker_6c53d256cbd09c0781192ed3bb440d02.bindTooltip(
+                `<div>
+                     Mayuri Cafe - Special Block
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c53d256cbd09c0781192ed3bb440d02.setIcon(icon_24208994e011a3ac5e74c4a52ff7e917);
+            
+    
+            var marker_f7b2c4bff2a1210e399ab9b1b537521e = L.marker(
+                [23.072694998976623, 76.85785661534271],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_6b16a7f14158d8f6445106c0a33eb3cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_45a69727048c981baec05727b5a46f1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8fc21a314155e237f8588525080fd938 = $(`<div id="html_8fc21a314155e237f8588525080fd938" style="width: 100.0%; height: 100.0%;">Bistro in Special Block</div>`)[0];
+                popup_45a69727048c981baec05727b5a46f1e.setContent(html_8fc21a314155e237f8588525080fd938);
+            
+        
+
+        marker_f7b2c4bff2a1210e399ab9b1b537521e.bindPopup(popup_45a69727048c981baec05727b5a46f1e)
+        ;
+
+        
+    
+    
+            marker_f7b2c4bff2a1210e399ab9b1b537521e.bindTooltip(
+                `<div>
+                     Bistro - Special Block
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f7b2c4bff2a1210e399ab9b1b537521e.setIcon(icon_6b16a7f14158d8f6445106c0a33eb3cf);
+            
+    
+            var marker_48716ff1a7e923ef71b5b6faad7f9aff = L.marker(
+                [23.07268283576973, 76.85756670304525],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_0446fd8d6845cc41d2b63a14ee44b7b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b7ff48f85e2d169a4815d9cc5a7871c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da331eee394eea9fa550eec825519578 = $(`<div id="html_da331eee394eea9fa550eec825519578" style="width: 100.0%; height: 100.0%;">Food outlet in Special Block</div>`)[0];
+                popup_b7ff48f85e2d169a4815d9cc5a7871c2.setContent(html_da331eee394eea9fa550eec825519578);
+            
+        
+
+        marker_48716ff1a7e923ef71b5b6faad7f9aff.bindPopup(popup_b7ff48f85e2d169a4815d9cc5a7871c2)
+        ;
+
+        
+    
+    
+            marker_48716ff1a7e923ef71b5b6faad7f9aff.bindTooltip(
+                `<div>
+                     AB Dakshin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_48716ff1a7e923ef71b5b6faad7f9aff.setIcon(icon_0446fd8d6845cc41d2b63a14ee44b7b6);
+            
+    
+            var marker_f6ed36094009ce2ace01dfb206cbc900 = L.marker(
+                [23.072399092055917, 76.85799059094754],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_039767c938aa5947b58eeeb7468d3904 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9da966c582cd19d8fb83ef8a7021614a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96bdb2bcbac614cf578ddad4366ef850 = $(`<div id="html_96bdb2bcbac614cf578ddad4366ef850" style="width: 100.0%; height: 100.0%;">Stationery facility in Special Block</div>`)[0];
+                popup_9da966c582cd19d8fb83ef8a7021614a.setContent(html_96bdb2bcbac614cf578ddad4366ef850);
+            
+        
+
+        marker_f6ed36094009ce2ace01dfb206cbc900.bindPopup(popup_9da966c582cd19d8fb83ef8a7021614a)
+        ;
+
+        
+    
+    
+            marker_f6ed36094009ce2ace01dfb206cbc900.bindTooltip(
+                `<div>
+                     Stationery - Special Block
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f6ed36094009ce2ace01dfb206cbc900.setIcon(icon_039767c938aa5947b58eeeb7468d3904);
+            
+    
+            var marker_a1e7044fc581624aca68268fa0dc309e = L.marker(
+                [23.072228222283417, 76.85761164154296],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_d26f972b199cce65f62a7d87814763bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e838667d3300718aca90e6cdfc363117 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c20431f36555da5c907bd704664b5ea = $(`<div id="html_8c20431f36555da5c907bd704664b5ea" style="width: 100.0%; height: 100.0%;">Gym facility in Special Block</div>`)[0];
+                popup_e838667d3300718aca90e6cdfc363117.setContent(html_8c20431f36555da5c907bd704664b5ea);
+            
+        
+
+        marker_a1e7044fc581624aca68268fa0dc309e.bindPopup(popup_e838667d3300718aca90e6cdfc363117)
+        ;
+
+        
+    
+    
+            marker_a1e7044fc581624aca68268fa0dc309e.bindTooltip(
+                `<div>
+                     Gym - Special Block
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a1e7044fc581624aca68268fa0dc309e.setIcon(icon_d26f972b199cce65f62a7d87814763bc);
+            
+    
+            var marker_6885ad53712a19997bb40da9f03c3f55 = L.marker(
+                [23.075263843921626, 76.85994176686623],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_287f24b297454ab5074db226f12fd07f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b809be6edbb9e7f0f0a11e8f5862c5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_beac3fd1755356176efa50a749bee450 = $(`<div id="html_beac3fd1755356176efa50a749bee450" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_7b809be6edbb9e7f0f0a11e8f5862c5a.setContent(html_beac3fd1755356176efa50a749bee450);
+            
+        
+
+        marker_6885ad53712a19997bb40da9f03c3f55.bindPopup(popup_7b809be6edbb9e7f0f0a11e8f5862c5a)
+        ;
+
+        
+    
+    
+            marker_6885ad53712a19997bb40da9f03c3f55.bindTooltip(
+                `<div>
+                     Boys Hostel 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6885ad53712a19997bb40da9f03c3f55.setIcon(icon_287f24b297454ab5074db226f12fd07f);
+            
+    
+            var marker_e1e9bf1cedf48937f961301ec41657a9 = L.marker(
+                [23.072935811634476, 76.86010712632114],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_364cd91315e38949e89b11f8dc233a18 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8de18cc99f55fc7b39f2e236befb462 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be46ff60f6005de0501cd72f1a80a46f = $(`<div id="html_be46ff60f6005de0501cd72f1a80a46f" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_a8de18cc99f55fc7b39f2e236befb462.setContent(html_be46ff60f6005de0501cd72f1a80a46f);
+            
+        
+
+        marker_e1e9bf1cedf48937f961301ec41657a9.bindPopup(popup_a8de18cc99f55fc7b39f2e236befb462)
+        ;
+
+        
+    
+    
+            marker_e1e9bf1cedf48937f961301ec41657a9.bindTooltip(
+                `<div>
+                     Boys Hostel 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e1e9bf1cedf48937f961301ec41657a9.setIcon(icon_364cd91315e38949e89b11f8dc233a18);
+            
+    
+            var marker_249d6341bd8ba49fc7bcbc456d8876b8 = L.marker(
+                [23.073404603974705, 76.85935143893288],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_0615cc93a7aa2660dcdd0f32584aa918 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e71d8fefe6f4c235c99f3edc1c898f73 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dced965d6790c74c9211af9a81bd7667 = $(`<div id="html_dced965d6790c74c9211af9a81bd7667" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_e71d8fefe6f4c235c99f3edc1c898f73.setContent(html_dced965d6790c74c9211af9a81bd7667);
+            
+        
+
+        marker_249d6341bd8ba49fc7bcbc456d8876b8.bindPopup(popup_e71d8fefe6f4c235c99f3edc1c898f73)
+        ;
+
+        
+    
+    
+            marker_249d6341bd8ba49fc7bcbc456d8876b8.bindTooltip(
+                `<div>
+                     Boys Hostel 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_249d6341bd8ba49fc7bcbc456d8876b8.setIcon(icon_0615cc93a7aa2660dcdd0f32584aa918);
+            
+    
+            var marker_73df293ee7f8f3f31b3891aa998e21f8 = L.marker(
+                [23.07300262622829, 76.85879256454697],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_2ebf82ac0791202225cc551fc21a6a05 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cdb218d5e834c1efb48eac718798166c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fa71e6be393ba934d45d831da60f024 = $(`<div id="html_0fa71e6be393ba934d45d831da60f024" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_cdb218d5e834c1efb48eac718798166c.setContent(html_0fa71e6be393ba934d45d831da60f024);
+            
+        
+
+        marker_73df293ee7f8f3f31b3891aa998e21f8.bindPopup(popup_cdb218d5e834c1efb48eac718798166c)
+        ;
+
+        
+    
+    
+            marker_73df293ee7f8f3f31b3891aa998e21f8.bindTooltip(
+                `<div>
+                     Boys Hostel 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_73df293ee7f8f3f31b3891aa998e21f8.setIcon(icon_2ebf82ac0791202225cc551fc21a6a05);
+            
+    
+            var marker_6f74ee3cf2e8258ac7a3862e1713a380 = L.marker(
+                [23.073584463172036, 76.8587315865943],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_a5c689d4d2118309e83882d3c8e72acf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a666fd40f2354f3a76f40614203db7d4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9106429283a232b16be4199e5dbc11b5 = $(`<div id="html_9106429283a232b16be4199e5dbc11b5" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_a666fd40f2354f3a76f40614203db7d4.setContent(html_9106429283a232b16be4199e5dbc11b5);
+            
+        
+
+        marker_6f74ee3cf2e8258ac7a3862e1713a380.bindPopup(popup_a666fd40f2354f3a76f40614203db7d4)
+        ;
+
+        
+    
+    
+            marker_6f74ee3cf2e8258ac7a3862e1713a380.bindTooltip(
+                `<div>
+                     Boys Hostel 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6f74ee3cf2e8258ac7a3862e1713a380.setIcon(icon_a5c689d4d2118309e83882d3c8e72acf);
+            
+    
+            var marker_90f0611876798304cfd9d71c2146ed4c = L.marker(
+                [23.07223885739569, 76.85992722241718],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_f7dbb5afbf1a73d3fad640ab62625bef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b06e4006bfea750d4901e0378fa12638 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c2821138d9516cd19786a7ceee25cae = $(`<div id="html_1c2821138d9516cd19786a7ceee25cae" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_b06e4006bfea750d4901e0378fa12638.setContent(html_1c2821138d9516cd19786a7ceee25cae);
+            
+        
+
+        marker_90f0611876798304cfd9d71c2146ed4c.bindPopup(popup_b06e4006bfea750d4901e0378fa12638)
+        ;
+
+        
+    
+    
+            marker_90f0611876798304cfd9d71c2146ed4c.bindTooltip(
+                `<div>
+                     Boys Hostel 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_90f0611876798304cfd9d71c2146ed4c.setIcon(icon_f7dbb5afbf1a73d3fad640ab62625bef);
+            
+    
+            var marker_4b9b3e12135cf7dffc77aba18714f82a = L.marker(
+                [23.07308528775764, 76.859298768917],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_fe97c233a169e86349cd4a5aa6235c5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c67ba38b348fbcce82dcfe38aed442c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb455fad64d482673163bb621a46f98f = $(`<div id="html_fb455fad64d482673163bb621a46f98f" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_c67ba38b348fbcce82dcfe38aed442c5.setContent(html_fb455fad64d482673163bb621a46f98f);
+            
+        
+
+        marker_4b9b3e12135cf7dffc77aba18714f82a.bindPopup(popup_c67ba38b348fbcce82dcfe38aed442c5)
+        ;
+
+        
+    
+    
+            marker_4b9b3e12135cf7dffc77aba18714f82a.bindTooltip(
+                `<div>
+                     Boys Hostel 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4b9b3e12135cf7dffc77aba18714f82a.setIcon(icon_fe97c233a169e86349cd4a5aa6235c5f);
+            
+    
+            var marker_560bae64a60576832e8856ea5ebbb33f = L.marker(
+                [23.072318196828828, 76.8590476135373],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_0193ce6d6c3848a21e390fcde82185ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae6514d95b4d0ed141529116e260e108 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_46095b176c969c3fddceae898b143b08 = $(`<div id="html_46095b176c969c3fddceae898b143b08" style="width: 100.0%; height: 100.0%;">Boys residential facility</div>`)[0];
+                popup_ae6514d95b4d0ed141529116e260e108.setContent(html_46095b176c969c3fddceae898b143b08);
+            
+        
+
+        marker_560bae64a60576832e8856ea5ebbb33f.bindPopup(popup_ae6514d95b4d0ed141529116e260e108)
+        ;
+
+        
+    
+    
+            marker_560bae64a60576832e8856ea5ebbb33f.bindTooltip(
+                `<div>
+                     Boys Hostel 8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_560bae64a60576832e8856ea5ebbb33f.setIcon(icon_0193ce6d6c3848a21e390fcde82185ce);
+            
+    
+            var marker_05ac4bf390a2936eb1316d0ba39c5784 = L.marker(
+                [23.073612718107736, 76.85941894341036],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_b0aff251cbb0af6ab55c3f8c6c87da80 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2d6b603d26382555bb1ac8c6a76728f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7ff2d8d51f178b9da1e4e46a26113d7f = $(`<div id="html_7ff2d8d51f178b9da1e4e46a26113d7f" style="width: 100.0%; height: 100.0%;">Faculty residential facility</div>`)[0];
+                popup_2d6b603d26382555bb1ac8c6a76728f3.setContent(html_7ff2d8d51f178b9da1e4e46a26113d7f);
+            
+        
+
+        marker_05ac4bf390a2936eb1316d0ba39c5784.bindPopup(popup_2d6b603d26382555bb1ac8c6a76728f3)
+        ;
+
+        
+    
+    
+            marker_05ac4bf390a2936eb1316d0ba39c5784.bindTooltip(
+                `<div>
+                     Faculty Housing
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_05ac4bf390a2936eb1316d0ba39c5784.setIcon(icon_b0aff251cbb0af6ab55c3f8c6c87da80);
+            
+    
+            var marker_532814fb65e219ab109b7367afc38c04 = L.marker(
+                [23.07171956141372, 76.86222506382646],
+                {
+}
+            ).addTo(map_84800c2457a4e764a0cde36f2182d878);
+        
+    
+            var icon_e5a8cd2405905a4360c21b8c4c22fc9a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a52291ccd1cd0a6f3255f15a5d76d4cc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d619ccf94aae8a1e7e275fc9679496e = $(`<div id="html_4d619ccf94aae8a1e7e275fc9679496e" style="width: 100.0%; height: 100.0%;">Faculty residential facility</div>`)[0];
+                popup_a52291ccd1cd0a6f3255f15a5d76d4cc.setContent(html_4d619ccf94aae8a1e7e275fc9679496e);
+            
+        
+
+        marker_532814fb65e219ab109b7367afc38c04.bindPopup(popup_a52291ccd1cd0a6f3255f15a5d76d4cc)
+        ;
+
+        
+    
+    
+            marker_532814fb65e219ab109b7367afc38c04.bindTooltip(
+                `<div>
+                     Faculty Housing
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_532814fb65e219ab109b7367afc38c04.setIcon(icon_e5a8cd2405905a4360c21b8c4c22fc9a);
+            
+</script>
+</html>
