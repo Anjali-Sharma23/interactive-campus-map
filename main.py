@@ -2,8 +2,28 @@ import pandas as pd
 import folium
 from folium.plugins import Search
 import json
+import math
 
 locations = pd.read_csv("data/locations.csv")
+def calculate_distance(lat1, lon1, lat2, lon2):
+
+    radius = 6371
+
+    lat1 = math.radians(lat1)
+    lon1 = math.radians(lon1)
+    lat2 = math.radians(lat2)
+    lon2 = math.radians(lon2)
+
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+
+    a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
+
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+    distance = radius * c
+
+    return distance
 
 lat = locations["latitude"].mean()
 lon = locations["longitude"].mean()
@@ -28,6 +48,7 @@ colors = {
 marker_group = folium.FeatureGroup(name="Locations").add_to(campus_map)
 
 for i in range(len(locations)):
+
     category = locations["category"][i]
 
     if category in colors:
@@ -35,12 +56,14 @@ for i in range(len(locations)):
     else:
         color = "gray"
 
-    folium.Marker(
+    marker = folium.Marker(
         [locations["latitude"][i], locations["longitude"][i]],
         popup=locations["description"][i],
         tooltip=locations["name"][i],
         icon=folium.Icon(color=color)
-    ).add_to(marker_group)
+    )
+
+    marker.add_to(marker_group)
 
 search_data = {
     "type": "FeatureCollection",
@@ -75,6 +98,7 @@ search_layer = folium.GeoJson(
 )
 
 search_layer.add_to(campus_map)
+
 
 Search(
     layer=search_layer,
@@ -114,3 +138,27 @@ campus_map.get_root().html.add_child(folium.Element(legend))
 campus_map.save("campus_map.html")
 
 print("Map created successfully")
+
+choice = input("\nDo you want to calculate the distance between two locations? (yes/no): ")
+
+if choice.lower() == "yes":
+
+    print("\nAvailable locations:")
+
+    for i in range(len(locations)):
+        print(i + 1, locations["name"][i])
+
+    first = int(input("\nEnter the number of the first location: "))
+    second = int(input("Enter the number of the second location: "))
+
+    lat1 = locations["latitude"][first - 1]
+    lon1 = locations["longitude"][first - 1]
+
+    lat2 = locations["latitude"][second - 1]
+    lon2 = locations["longitude"][second - 1]
+
+    distance = calculate_distance(lat1, lon1, lat2, lon2)
+
+    print("\nDistance between", locations["name"][first - 1],
+          "and", locations["name"][second - 1], "is",
+          round(distance, 2), "km")
