@@ -1,5 +1,7 @@
 import pandas as pd
 import folium
+from folium.plugins import Search
+import json
 
 locations = pd.read_csv("data/locations.csv")
 
@@ -23,6 +25,8 @@ colors = {
     "Student Services": "pink"
 }
 
+marker_group = folium.FeatureGroup(name="Locations").add_to(campus_map)
+
 for i in range(len(locations)):
     category = locations["category"][i]
 
@@ -36,7 +40,48 @@ for i in range(len(locations)):
         popup=locations["description"][i],
         tooltip=locations["name"][i],
         icon=folium.Icon(color=color)
-    ).add_to(campus_map)
+    ).add_to(marker_group)
+
+search_data = {
+    "type": "FeatureCollection",
+    "features": []
+}
+
+for i in range(len(locations)):
+
+    feature = {
+        "type": "Feature",
+        "properties": {
+            "name": locations["name"][i]
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                locations["longitude"][i],
+                locations["latitude"][i]
+            ]
+        }
+    }
+
+    search_data["features"].append(feature)
+
+search_layer = folium.GeoJson(
+    search_data,
+    name="Search Locations",
+    style_function=lambda x: {
+        "opacity": 0,
+        "fillOpacity": 0
+    }
+)
+
+search_layer.add_to(campus_map)
+
+Search(
+    layer=search_layer,
+    search_label="name",
+    placeholder="Search location",
+    collapsed=False
+).add_to(campus_map)
 
 legend = """
 <div style="
@@ -64,6 +109,7 @@ font-size: 14px;
 """
 
 campus_map.get_root().html.add_child(folium.Element(legend))
+
 
 campus_map.save("campus_map.html")
 
