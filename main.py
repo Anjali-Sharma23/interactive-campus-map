@@ -3,10 +3,10 @@ import folium
 from folium.plugins import Search
 import math
 
-locations = pd.read_csv("data/locations.csv")
+data = pd.read_csv("data/locations.csv")
 
-def calculate_distance(lat1, lon1, lat2, lon2):
-    radius = 6371
+def distance(lat1, lon1, lat2, lon2):
+    r = 6371
     lat1 = math.radians(lat1)
     lon1 = math.radians(lon1)
     lat2 = math.radians(lat2)
@@ -15,16 +15,12 @@ def calculate_distance(lat1, lon1, lat2, lon2):
     dlon = lon2 - lon1
     a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-    distance = radius * c
-    return distance
+    return r * c
 
-lat = locations["latitude"].mean()
-lon = locations["longitude"].mean()
+lat = data["latitude"].mean()
+lon = data["longitude"].mean()
 
-campus_map = folium.Map(
-    location=[lat, lon],
-    zoom_start=17
-)
+m = folium.Map(location=[lat, lon], zoom_start=17)
 
 colors = {
     "Academic": "blue",
@@ -39,46 +35,48 @@ colors = {
     "Student Services": "pink"
 }
 
-marker_group = folium.FeatureGroup(name="Locations").add_to(campus_map)
+markers = folium.FeatureGroup(name="Locations")
+markers.add_to(m)
 
-for i in range(len(locations)):
-    cat = locations["category"][i]
+for i in range(len(data)):
+    cat = data["category"][i]
     if cat in colors:
         color = colors[cat]
     else:
         color = "gray"
 
     marker = folium.Marker(
-        [locations["latitude"][i], locations["longitude"][i]],
-        popup=locations["description"][i],
-        tooltip=locations["name"][i],
+        [data["latitude"][i], data["longitude"][i]],
+        popup=data["description"][i],
+        tooltip=data["name"][i],
         icon=folium.Icon(color=color)
     )
-    marker.add_to(marker_group)
 
-search_data = {
+    marker.add_to(markers)
+
+search = {
     "type": "FeatureCollection",
     "features": []
 }
 
-for i in range(len(locations)):
-    f = {
+for i in range(len(data)):
+    place = {
         "type": "Feature",
         "properties": {
-            "name": locations["name"][i]
+            "name": data["name"][i]
         },
         "geometry": {
             "type": "Point",
             "coordinates": [
-                locations["longitude"][i],
-                locations["latitude"][i]
+                data["longitude"][i],
+                data["latitude"][i]
             ]
         }
     }
-    search_data["features"].append(f)
+    search["features"].append(place)
 
-search_layer = folium.GeoJson(
-    search_data,
+layer = folium.GeoJson(
+    search,
     name="Search Locations",
     style_function=lambda x: {
         "opacity": 0,
@@ -86,14 +84,14 @@ search_layer = folium.GeoJson(
     }
 )
 
-search_layer.add_to(campus_map)
+layer.add_to(m)
 
 Search(
-    layer=search_layer,
+    layer=layer,
     search_label="name",
     placeholder="Search location",
     collapsed=False
-).add_to(campus_map)
+).add_to(m)
 
 legend = """
 <div style="
@@ -120,33 +118,32 @@ font-size: 14px;
 </div>
 """
 
-campus_map.get_root().html.add_child(folium.Element(legend))
-campus_map.save("campus_map.html")
+m.get_root().html.add_child(folium.Element(legend))
+m.save("campus_map.html")
 
 print("Map created successfully")
 
-choice = input("\nDo you want to calculate the distance between two locations? (yes/no): ")
+ch = input("\nDo you want to calculate the distance between two locations? (yes/no): ")
 
-if choice.lower() == "yes":
+if ch.lower() == "yes":
     print("\nAvailable locations:")
-    for i in range(len(locations)):
-        print(i + 1, locations["name"][i])
+
+    for i in range(len(data)):
+        print(i + 1, data["name"][i])
 
     a = int(input("\nEnter the number of the first location: "))
     b = int(input("Enter the number of the second location: "))
 
-    if a < 1 or a > len(locations) or b < 1 or b > len(locations):
+    if a < 1 or a > len(data) or b < 1 or b > len(data):
         print("\nInvalid location number.")
     elif a == b:
         print("\nPlease choose two different locations.")
     else:
-        lat1 = locations["latitude"][a - 1]
-        lon1 = locations["longitude"][a - 1]
-        lat2 = locations["latitude"][b - 1]
-        lon2 = locations["longitude"][b - 1]
-
-        d = calculate_distance(lat1, lon1, lat2, lon2)
-
-        print("\nDistance between", locations["name"][a - 1],
-              "and", locations["name"][b - 1], "is",
-              round(d, 2), "km")
+        lat1 = data["latitude"][a - 1]
+        lon1 = data["longitude"][a - 1]
+        lat2 = data["latitude"][b - 1]
+        lon2 = data["longitude"][b - 1]
+        d = distance(lat1, lon1, lat2, lon2)
+        print("\nDistance between", data["name"][a - 1],
+              "and", data["name"][b - 1],
+              "is", round(d, 2), "km")
