@@ -37,23 +37,18 @@ interactive-campus-map/
 ## Setup and Installation
 
 1. Clone the repository using:
-
 git clone https://github.com/Anjali-Sharma23/interactive-campus-map
 
 2. Open the project folder:
-
 cd interactive-campus-map
 
 3. Create a virtual environment:
-
 python -m venv .venv
 
 4. Activate the virtual environment on Windows:
-
 .venv\Scripts\activate
 
 5. Install the required libraries:
-
 pip install -r requirements.txt
 
 The required libraries are Pandas and Folium.
