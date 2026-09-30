@@ -41,6 +41,10 @@ interactive-campus-map
 │   └── locations.csv
 │
 ├── main.py
+├── map_module.py
+├── search_module.py
+├── distance_module.py
+├── location_module.py
 ├── campus_map.html
 ├── requirements.txt
 ├── README.md
@@ -49,7 +53,7 @@ interactive-campus-map
 └── .gitattributes
 ```
 
-The `data/locations.csv` file contains the location information used by the program. The `main.py` file contains the main Python program. The `campus_map.html` file is generated automatically by Folium when the program creates the interactive map. The `requirements.txt` file contains the required Python libraries.
+The `data/locations.csv` file contains the location information used by the program. The The project is divided into separate Python modules based on their responsibilities. The `main.py` file handles the main menu and user interaction. The `map_module.py` file creates the interactive campus map. The `search_module.py` file handles searching, nearby locations and category filtering. The `distance_module.py` file handles distance calculation. The `location_module.py` file handles location details and displaying all locations.The `campus_map.html` file is generated automatically by Folium when the program creates the interactive map. The `requirements.txt` file contains the required Python libraries.
 
 ## Installation
 First, open the project folder in VS Code or another Python editor.
